@@ -6,9 +6,9 @@ resource "tls_private_key" "avtx_key" {
   rsa_bits  = 2048
 }
 
-resource "aws_key_pair" "ace_key" {
+resource "aws_key_pairr" "ace_keyy" {
   provider   = aws.ohio
-  key_name   = var.ace_ec2_key_name
+  key_name   = var.ace_ec2_key_nam
   public_key = tls_private_key.avtx_key.public_key_openssh
 }
 
@@ -79,8 +79,8 @@ resource "aviatrix_segmentation_network_domain" "BU2" {
   ]
 }
   
- resource "aviatrix_segmentation_network_domain_connection_policy" "BU1_BU2" {
+resource "aviatrix_segmentation_network_domain_connection_policy" "BU1_BU2" {
   domain_name_1 = "BU1"
   domain_name_2 = "BU2"
   depends_on    = [aviatrix_segmentation_network_domain.BU1, aviatrix_segmentation_network_domain.BU2]
-} 
+}
